@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/email_addclient"
+        android:id="@+id/joiningdate_addclient"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -36,14 +36,14 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:hint="Email id"
-        android:inputType="textEmailAddress"
+        android:hint="joining date"
+        android:inputType="date"
         android:textAlignment="center"
         android:textColorHint="#CC0000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_addclient" />
+        app:layout_constraintTop_toBottomOf="@+id/gender_addclient" />
 
     <EditText
         android:id="@+id/name_addclient"
@@ -75,7 +75,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:hint="contact number"
+        android:hint="Contact Number"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="#CC0000"
@@ -86,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/name_addclient" />
 
     <EditText
-        android:id="@+id/weight_Aclient"
+        android:id="@+id/gender_addclient"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -95,7 +95,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:hint="Weight"
+        android:hint="Gender"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="#CC0000"
@@ -103,7 +103,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_addclient" />
+        app:layout_constraintTop_toBottomOf="@+id/phone_addclient" />
+
+    <EditText
+        android:id="@+id/joiningperiod_addclient"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="Joining Period"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textColor="#CC0000"
+        android:textColorHint="#CC0000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/joiningdate_addclient" />
 
 
     <EditText
@@ -116,7 +136,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:hint="Final Amount"
+        android:hint="Amount"
 
         android:inputType="number"
         android:textAlignment="center"
@@ -124,7 +144,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/package_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/joiningperiod_addclient" />
 
     <Button
         android:id="@+id/bnadd_addclient"
@@ -145,51 +165,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Amount_addclient" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:text="1 month"
-        android:textColor="#CC0000"
-        app:layout_constraintBaseline_toBaselineOf="@+id/package_textview"
-        app:layout_constraintStart_toEndOf="@+id/package_textview" />
 
-    <TextView
-        android:id="@+id/package_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="25dp"
-        android:text="Period"
-        android:textSize="16sp"
-        android:textColor="#CC0000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weight_Aclient"
-         />
-
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:text="6 months"
-        android:textColor="#CC0000"
-        app:layout_constraintBaseline_toBaselineOf="@+id/checkBox"
-        app:layout_constraintStart_toEndOf="@+id/checkBox" />
-
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:text="1 year"
-        android:textColor="#CC0000"
-        app:layout_constraintBaseline_toBaselineOf="@+id/checkBox2"
-        app:layout_constraintStart_toEndOf="@+id/checkBox2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

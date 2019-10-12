@@ -32,6 +32,7 @@ public class Afterlogin_fragment extends Fragment {
       viewclient=view.findViewById(R.id.bnViewClient_afterlogin);
       viewall=view.findViewById(R.id.bnViewAll_afterlogin);
       viewallclient();
+      add();
         return view;
     }
 

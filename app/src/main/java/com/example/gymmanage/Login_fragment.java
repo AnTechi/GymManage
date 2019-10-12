@@ -36,10 +36,10 @@ public class Login_fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_login_fragment, container, false);
-        bnlogin=view.findViewById(R.id.button_login);
-        username_login=view.findViewById(R.id.username_login);
+        bnlogin=view.findViewById(R.id.bnsearch_viewclient);
+        username_login=view.findViewById(R.id.Name_viewclient);
 
-        password_login=view.findViewById(R.id.password_login);
+        password_login=view.findViewById(R.id.number_viewclient);
         db=new Database(getActivity());
 
 
