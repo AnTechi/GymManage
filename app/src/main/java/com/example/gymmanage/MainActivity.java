@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+//hello re hello
 
 public class MainActivity extends AppCompatActivity  {
     public static FragmentManager fragmentManager;
