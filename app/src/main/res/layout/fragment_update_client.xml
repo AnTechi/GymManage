@@ -150,25 +150,30 @@
         android:id="@+id/bndelete_updateclient"
         android:layout_width="110dp"
         android:layout_height="52dp"
-        android:hint="DELETE"
+        android:layout_marginStart="16dp"
 
+        android:layout_marginLeft="16dp"
+        android:hint="DELETE"
         android:textColorHint="#CC0000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/bnsearch_updateclient"
-        tools:layout_editor_absoluteX="285dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bnupdate_updateclient" />
 
     <Button
-        android:id="@+id/bnupdate_updateclient2"
+        android:id="@+id/bnupdate_updateclient"
         android:layout_width="110dp"
         android:layout_height="52dp"
-        android:hint="UPDATE"
+        android:layout_marginStart="16dp"
 
+        android:layout_marginLeft="16dp"
+        android:hint="UPDATE"
         android:textColorHint="#CC0000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/bnsearch_updateclient"
-        tools:layout_editor_absoluteX="150dp" />
+        app:layout_constraintStart_toEndOf="@+id/bnsearch_updateclient" />
 
     <Button
         android:id="@+id/bnsearch_updateclient"
