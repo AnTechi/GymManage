@@ -84,6 +84,14 @@ public class Addclients extends Fragment {
             else
                 Toast.makeText(getActivity(),"Data not inserted",Toast.LENGTH_LONG).show();
 
+            name.setText("");
+            phonenumber.setText("");
+            gender.setText("");
+            joindate.setText("");
+            enddate.setText("");
+            amount.setText("");
+
+
         }
 
 
