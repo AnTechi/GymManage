@@ -118,8 +118,8 @@ public  boolean addClientDetails(String Name,String Phonenumber,String Sex,Strin
     }
 //Search user
     public Cursor SearchClient(String name,String phonenumber){
-       SQLiteDatabase db=this.getReadableDatabase();
-       Cursor cursor=db.rawQuery("SELECT * FROM " + TABLE_NAME_CLIENTS + " where " + NAME + "='" + name + "' and " + PHONENUMBER + " = '" + phonenumber + "'", null);
+       SQLiteDatabase db=this.getWritableDatabase();
+       Cursor cursor=db.rawQuery("SELECT * FROM " + TABLE_NAME_CLIENTS + " where " + NAME + "='" + name + "' and " + PHONENUMBER + " = '" + phonenumber +"'", null);
 return cursor;
 
     }

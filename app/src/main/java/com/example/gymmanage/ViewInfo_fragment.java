@@ -52,16 +52,14 @@ public class ViewInfo_fragment extends Fragment {
         }
         else
         {
-            while(res.moveToNext())
-
-            {
+            while(res.moveToNext()) {
                 buffer.append("Id :" + res.getString(0) + ", ");
                 buffer.append("Name :" + res.getString(1) + ", ");
                 buffer.append("Phone :" + res.getString(2) + ", ");
                 buffer.append("Gender :" + res.getString(3) + ", ");
-                buffer.append("Join date :"+ res.getString(4)+", ");
-                buffer.append("End date :"+ res.getString(5)+", ");
-                buffer.append("Amount :"+ res.getString(6)+"\n");
+                buffer.append("Join date :" + res.getString(4) + ", ");
+                buffer.append("End date :" + res.getString(5) + ", ");
+                buffer.append("Amount :" + res.getString(6) + "\n\n");
             }
 
 
