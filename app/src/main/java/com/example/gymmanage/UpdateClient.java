@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 /**
@@ -30,54 +31,50 @@ private EditText name_tx,phonenumber_tx,gender_tx,enddate_tx,joindate_tx,amount_
         View view= inflater.inflate(R.layout.fragment_update_client, container, false);
         db=new ClientDatabase(getActivity());
         name_tx=view.findViewById(R.id.name_updateclient);
+        bnsearch_updatefrag=view.findViewById(R.id.bnsearch_updateclient);
+        bnsearch_updatefrag=view.findViewById(R.id.bnsearch_updateclient);
         phonenumber_tx=view.findViewById(R.id.phone_updateclient);
-        gender_tx=view.findViewById(R.id.gender_updateclient);
-        enddate_tx=view.findViewById(R.id.joiningdate_updateclient);
-        joindate_tx=view.findViewById(R.id.endingdate_updateclient);
-        amount_tx=view.findViewById(R.id.name_updateclient);
-        bnsearch_updatefrag=view.findViewById(R.id.bnsearch_updateclient);
-        bnsearch_updatefrag=view.findViewById(R.id.bnsearch_updateclient);
-        searchClient();
+
+        bnsearch_updatefrag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+searchClient();
+            }
+        });
 
     return view;
     }
 
 
     public void searchClient(){
+        String Name="Rohit";
+        String Phonenumber="9780";
+//        String Gender=gender_tx.getText().toString();
+//        String Joindate=joindate_tx.getText().toString();
+//        String Enddate=enddate_tx.getText().toString();
+//      String Amount=amount_tx.getText().toString();
 
-        bnsearch_updatefrag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+//       name_tx.setText("");
+//        phonenumber_tx.setText("");
+//        joindate_tx.setText("");
+//        enddate_tx.setText("");
+//        gender_tx.setText("");
+//        amount_tx.setText("");
 
-                String Name=name_tx.getText().toString();
-                String Phonenumber=phonenumber_tx.getText().toString();
+Cursor cs=db.SearchClient(Name,Phonenumber);
 
+if(cs.getCount()>0){
 
-                Cursor cs=db.SearchClient(Name,Phonenumber);
-
-
-                   while(cs.moveToNext()) {
-
-
-                name_tx.setText(cs.getString(1));
-                phonenumber_tx.setText(cs.getString(2));
-                gender_tx.setText(cs.getString(3));
-                joindate_tx.setText(cs.getString(4));
-                enddate_tx.setText(cs.getString(5));
-                amount_tx.setText(cs.getString(6));
-                   }
-
-
-            }
-        });
+    Toast.makeText(getActivity(),"hoya",Toast.LENGTH_SHORT).show();
+//    name_tx.setText("");
+//    phonenumber_tx.setText("");
 
 
-
-
-
-
-
-
+}
+else{
+    Toast.makeText(getActivity(),"ni",Toast.LENGTH_SHORT).show();
+}
     }
 
 
