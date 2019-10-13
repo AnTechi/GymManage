@@ -38,35 +38,63 @@ private EditText name_tx,phonenumber_tx,gender_tx,enddate_tx,joindate_tx,amount_
         joindate_tx=view.findViewById(R.id.joiningdate_updateclient);
         enddate_tx=view.findViewById(R.id.endingdate_updateclient);
         amount_tx=view.findViewById(R.id.Amount_updateclient);
-
-        bnsearch_updatefrag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        bndelete_updatefrag=view.findViewById(R.id.bndelete_updateclient);
 searchClient();
-            }
-        });
+        deleteClient();
+
+
 
     return view;
     }
 
 
     public void searchClient(){
-        String Name=name_tx.getText().toString();
-        String Phonenumber=phonenumber_tx.getText().toString();
+        bnsearch_updatefrag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String Name=name_tx.getText().toString();
+                String Phonenumber=phonenumber_tx.getText().toString();
 
-Cursor cs=db.SearchClient(Name,Phonenumber);
-while (cs.moveToNext()){
-    name_tx.setText(cs.getString(1));
-    phonenumber_tx.setText(cs.getString(2));
-    gender_tx.setText(cs.getString(3));
-    joindate_tx.setText(cs.getString(4));
-    enddate_tx.setText(cs.getString(5));
-    amount_tx.setText(cs.getString(6));
-}
+                Cursor cs=db.SearchClient(Name,Phonenumber);
+                while (cs.moveToNext()){
+                    name_tx.setText(cs.getString(1));
+                    phonenumber_tx.setText(cs.getString(2));
+                    gender_tx.setText(cs.getString(3));
+                    joindate_tx.setText(cs.getString(4));
+                    enddate_tx.setText(cs.getString(5));
+                    amount_tx.setText(cs.getString(6));
+                }
+
+            }
+        });
+
 
 
     }
 
 
+
+public void deleteClient() {
+    bndelete_updatefrag.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            String name = name_tx.getText().toString();
+            String phonenumber = phonenumber_tx.getText().toString();
+            db.DeleteClients(name, phonenumber);
+
+
+            name_tx.setText("");
+            phonenumber_tx.setText("");
+            gender_tx.setText("");
+            joindate_tx.setText("");
+            enddate_tx.setText("");
+            amount_tx.setText("");
+            Toast.makeText(getActivity(), "deleted", Toast.LENGTH_LONG).show();
+
+        }
+    });
+
+
+
+}
 }

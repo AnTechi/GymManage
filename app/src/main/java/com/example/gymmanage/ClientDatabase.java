@@ -89,7 +89,8 @@ public  boolean addClientDetails(String Name,String Phonenumber,String Sex,Strin
     public void DeleteClients(String name,String phonenumber)
     {
         SQLiteDatabase db=this.getWritableDatabase();
-        db.delete(TABLE_NAME_CLIENTS, NAME + "=" + name + "AND" + PHONENUMBER + "=" +phonenumber , null);
+        db.execSQL("DELETE FROM " + TABLE_NAME_CLIENTS+ " WHERE "+NAME+"='"+name+"'");
+        db.close();
     }
 
     //updateDatabase
