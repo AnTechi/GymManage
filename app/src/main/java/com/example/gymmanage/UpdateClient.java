@@ -34,7 +34,7 @@ private EditText name_tx,phonenumber_tx,gender_tx,enddate_tx,joindate_tx,amount_
         gender_tx=view.findViewById(R.id.gender_updateclient);
         enddate_tx=view.findViewById(R.id.joiningdate_updateclient);
         joindate_tx=view.findViewById(R.id.endingdate_updateclient);
-        amount_tx=view.findViewById(R.id.name_updateclient);
+        amount_tx=view.findViewById(R.id.Amount_updateclient);
         bnsearch_updatefrag=view.findViewById(R.id.bnsearch_updateclient);
         bnsearch_updatefrag=view.findViewById(R.id.bnsearch_updateclient);
         searchClient();
