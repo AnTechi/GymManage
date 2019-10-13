@@ -15,6 +15,7 @@ public class Database extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="gym.db";
     public static final int DATABASE_VERSION=1;
     public static final String TABLE_NAME="user_data";
+
     public static final String username="user_name";
     public static final String email="email_id";
     public static final String Password="password";

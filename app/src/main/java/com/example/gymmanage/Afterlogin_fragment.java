@@ -31,8 +31,11 @@ public class Afterlogin_fragment extends Fragment {
       addclient=view.findViewById(R.id.bnAddClient_afterlogin);
       viewclient=view.findViewById(R.id.bnViewClient_afterlogin);
       viewall=view.findViewById(R.id.bnViewAll_afterlogin);
+      updateclient=view.findViewById(R.id.bnUpdateClient_afterlogin);
+
       viewallclient();
       add();
+      updateclient();
         return view;
     }
 
@@ -53,6 +56,16 @@ public class Afterlogin_fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new ViewInfo_fragment(),null).addToBackStack(null).commit();
+            }
+        });
+    }
+
+    public void updateclient()
+    {
+        updateclient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new UpdateClient(),null).addToBackStack(null).commit();
             }
         });
     }
