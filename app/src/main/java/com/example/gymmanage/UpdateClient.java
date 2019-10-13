@@ -39,9 +39,10 @@ private EditText name_tx,phonenumber_tx,gender_tx,enddate_tx,joindate_tx,amount_
         enddate_tx=view.findViewById(R.id.endingdate_updateclient);
         amount_tx=view.findViewById(R.id.Amount_updateclient);
         bndelete_updatefrag=view.findViewById(R.id.bndelete_updateclient);
+        bnupdate_updatefrag=view.findViewById(R.id.bnupdate_updateclient);
 searchClient();
         deleteClient();
-
+updateClient();
 
 
     return view;
@@ -97,4 +98,26 @@ public void deleteClient() {
 
 
 }
+public void updateClient(){
+        bnupdate_updatefrag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String Name=name_tx.getText().toString();
+                String Phonenumber=phonenumber_tx.getText().toString();
+                String Gender=gender_tx.getText().toString();
+                String Joiningdate=joindate_tx.getText().toString();
+                String EndingDate=enddate_tx.getText().toString();
+                String Amount=amount_tx.getText().toString();
+                db.UpdateClients(Name,Phonenumber,Gender,Joiningdate,EndingDate,Amount);
+
+
+
+
+
+            }
+        });
+}
+
+
+
 }
