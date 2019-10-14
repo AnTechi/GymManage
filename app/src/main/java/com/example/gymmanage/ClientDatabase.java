@@ -106,7 +106,7 @@ public  boolean addClientDetails(String Name,String Phonenumber,String Sex,Strin
         contentValues.put(ENDING_DATE,endingdate);
         contentValues.put(AMOUNT,amount);
 
-       long result= db.update(TABLE_NAME_CLIENTS, contentValues, "NAME = ?",new String[] { name });
+       long result= db.update(TABLE_NAME_CLIENTS, contentValues, NAME + " = ? AND " + PHONENUMBER + " = ?",new String[] { name,phonenumber });
 
         if(result==-1)
         {
