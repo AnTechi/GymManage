@@ -1,6 +1,7 @@
 package com.example.gymmanage;
 
 
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,13 +10,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Afterlogin_fragment extends Fragment {
-    private Button addclient,viewclient,deleteclient,updateclient,viewall;
+    private Button addclient,updateclient,viewall,viewmonthlyincome;
+    private TextView amount;
+    ClientDatabase db;
 
 
     public Afterlogin_fragment() {
@@ -29,9 +34,12 @@ public class Afterlogin_fragment extends Fragment {
         // Inflate the layout for this fragment
       View view=inflater.inflate(R.layout.fragment_afterlogin_fragment, container, false);
       addclient=view.findViewById(R.id.bnAddClient_afterlogin);
-      viewclient=view.findViewById(R.id.bnViewClient_afterlogin);
+      viewmonthlyincome=view.findViewById(R.id.bntotalamt_afterlogin);
       viewall=view.findViewById(R.id.bnViewAll_afterlogin);
       updateclient=view.findViewById(R.id.bnUpdateClient_afterlogin);
+      amount=view.findViewById(R.id.finalamount_afterlogin);
+      db=new ClientDatabase(getActivity());
+      monthlyincome();
 
       viewallclient();
       add();
@@ -69,5 +77,36 @@ public class Afterlogin_fragment extends Fragment {
             }
         });
     }
+
+    public void monthlyincome()
+    {
+        viewmonthlyincome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Cursor res=db.MonthlyIncomet();
+                StringBuffer buffer=new StringBuffer();
+                int amt=0;
+                if(res.getCount()==0)
+                {
+                    Toast.makeText(getActivity(),"No Data",Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    while(res.moveToNext())
+                    {
+                        amt=amt+Integer.parseInt(res.getString(0));
+                        System.out.println(Integer.parseInt(res.getString(0)));
+
+                    }
+                    buffer.append(amt);
+                    amount.setText(buffer);
+
+                }
+
+
+            }
+        });
+    }
+
 
 }

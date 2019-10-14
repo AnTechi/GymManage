@@ -65,6 +65,7 @@ updateClient();
                     enddate_tx.setText(cs.getString(5));
                     amount_tx.setText(cs.getString(6));
                 }
+                db.close();
 
             }
         });
@@ -79,6 +80,7 @@ public void deleteClient() {
     bndelete_updatefrag.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+
             String name = name_tx.getText().toString();
             String phonenumber = phonenumber_tx.getText().toString();
             db.DeleteClients(name, phonenumber);
@@ -91,6 +93,7 @@ public void deleteClient() {
             enddate_tx.setText("");
             amount_tx.setText("");
             Toast.makeText(getActivity(), "deleted", Toast.LENGTH_LONG).show();
+            db.close();
 
         }
     });
@@ -109,6 +112,7 @@ public void updateClient(){
                 String EndingDate=enddate_tx.getText().toString();
                 String Amount=amount_tx.getText().toString();
                 db.UpdateClients(Name,Phonenumber,Gender,Joiningdate,EndingDate,Amount);
+                db.close();
 
 
 

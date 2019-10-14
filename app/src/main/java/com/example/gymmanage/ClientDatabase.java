@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.strictmode.SqliteObjectLeakedViolation;
 
 import java.io.File;
 
@@ -89,7 +90,7 @@ public  boolean addClientDetails(String Name,String Phonenumber,String Sex,Strin
     public void DeleteClients(String name,String phonenumber)
     {
         SQLiteDatabase db=this.getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_NAME_CLIENTS+ " WHERE "+NAME+"='"+name+"'");
+        db.execSQL("DELETE FROM " + TABLE_NAME_CLIENTS+ " WHERE "+NAME+"='"+name+"' and"+ PHONENUMBER+"='"+phonenumber+"'",null);
         db.close();
     }
 
@@ -104,7 +105,8 @@ public  boolean addClientDetails(String Name,String Phonenumber,String Sex,Strin
         contentValues.put(JOINING_DATE,joiningdate);
         contentValues.put(ENDING_DATE,endingdate);
         contentValues.put(AMOUNT,amount);
-       long result=db.update(TABLE_NAME_CLIENTS,contentValues,NAME + "=" + name + "AND" + PHONENUMBER + "=" +phonenumber,null);
+
+       long result= db.update(TABLE_NAME_CLIENTS, contentValues, "NAME = ?",new String[] { name });
 
         if(result==-1)
         {
@@ -124,6 +126,19 @@ public  boolean addClientDetails(String Name,String Phonenumber,String Sex,Strin
 return cursor;
 
     }
+
+    //monthly income
+
+    public Cursor MonthlyIncomet() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT " + AMOUNT + " FROM " + TABLE_NAME_CLIENTS, null);
+        return res;
+    }
+
+
+
+
+
 
 
 }

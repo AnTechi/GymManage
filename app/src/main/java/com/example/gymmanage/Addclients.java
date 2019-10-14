@@ -93,6 +93,7 @@ public class Addclients extends Fragment {
 
 
         }
+        db.close();
 
 
 
