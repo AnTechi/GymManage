@@ -27,7 +27,7 @@ import java.util.Calendar;
  */
 public class Addclients extends Fragment implements DatePickerDialog.OnDateSetListener {
 
-
+//kk
     ClientDatabase db;
     private EditText name,phonenumber,gender,joindate,enddate,amount;
      private Button bnadd_addfrag,bndate_addfrag;
