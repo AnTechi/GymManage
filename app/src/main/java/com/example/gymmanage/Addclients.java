@@ -1,6 +1,9 @@
 package com.example.gymmanage;
 
 
+import android.app.DatePickerDialog;
+import android.app.DialogFragment;
+import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
@@ -10,22 +13,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.SQLClientInfoException;
+import java.util.Calendar;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Addclients extends Fragment {
+public class Addclients extends Fragment implements DatePickerDialog.OnDateSetListener {
 
 
     ClientDatabase db;
     private EditText name,phonenumber,gender,joindate,enddate,amount;
-     private Button bnadd_addfrag;
+     private Button bnadd_addfrag,bndate_addfrag;
+     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
 
 
@@ -44,6 +50,15 @@ public class Addclients extends Fragment {
         enddate=view.findViewById(R.id.endingdate_addclient);
         amount=view.findViewById(R.id.Amount_addclient);
          bnadd_addfrag=view.findViewById(R.id.bnadd_addclient);
+bndate_addfrag=view.findViewById(R.id.date_button);
+//bndate_addfrag.setOnClickListener(new View.OnClickListener() {
+//    @Override
+//    public void onClick(View view) {
+//        DialogFragment datepicker=new android.app.DialogFragment();
+//
+//
+//    }
+//});
 
          bnadd_addfrag.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -57,7 +72,10 @@ public class Addclients extends Fragment {
         return view;
     }
 
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int day) {
 
+    }
 
     public void addclient()
     {
